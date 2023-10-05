@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/utils/colors.dart';
 import 'package:todoapp/utils/contants.dart';
+import 'package:todoapp/view/homescreen/home_screen.dart';
 
 class BottomSheetWidget extends StatefulWidget {
   const BottomSheetWidget({
@@ -21,7 +22,7 @@ class BottomSheetWidget extends StatefulWidget {
 class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   @override
   Widget build(BuildContext context) {
-    DateTime selectedDate;
+    late DateTime selectedDate;
     bool isSelected = false;
     return Container(
       decoration: BoxDecoration(
@@ -62,12 +63,15 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                       onTap: () async {
                         DateTime? pickedDate = await showDatePicker(
                             context: context,
-                            initialDate: DateTime.now(),
+                            initialDate:
+                                isSelected ? selectedDate : DateTime.now(),
                             firstDate: DateTime.now(),
                             lastDate: DateTime.now().add(Duration(days: 120)));
 
                         if (pickedDate != null) {
                           setState(() {
+                            selectedDate = pickedDate;
+                            isSelected = true;
                             final year = pickedDate.year;
                             final month = pickedDate.month;
                             final day = pickedDate.day;
@@ -82,6 +86,22 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15))),
             ),
+            kheight20,
+            ElevatedButton(
+              onPressed: () {
+                final Map<String, String> map = {};
+                setState(() {
+                  map["title"] = widget.titlleController.text;
+                  map["desc"] = widget.descriptioncontroller.text;
+                  map["date"] = widget.dateController.text;
+                  tiledata.add(map);
+                });
+                Navigator.pop(context);
+              },
+              child: Text("Add"),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.blue)),
+            )
           ],
         ),
       ),
