@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:todoapp/view/homescreen/home_screen.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
