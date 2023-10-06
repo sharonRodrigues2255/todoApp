@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/controller/notelist_functions.dart';
+<<<<<<< HEAD
+=======
+import 'package:todoapp/model/data_model.dart';
+>>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
 import 'package:todoapp/utils/colors.dart';
 import 'package:todoapp/utils/contants.dart';
 import 'package:todoapp/view/homescreen/widgets/bottom_sheet.dart';
@@ -11,7 +15,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = NoteController();
+<<<<<<< HEAD
     controller.getItems();
+=======
+>>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
@@ -35,7 +42,11 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ValueListenableBuilder(
         valueListenable: controller.tiledata,
+<<<<<<< HEAD
         builder: (BuildContext context, value, _) {
+=======
+        builder: (BuildContext context, List<DataModel> value, _) {
+>>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
           return ListView.builder(
               itemCount: value.length,
               itemBuilder: (context, index) {
@@ -45,10 +56,14 @@ class HomeScreen extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                   child: InkWell(
                     onTap: () => Navigator.of(context).push(MaterialPageRoute(
+<<<<<<< HEAD
                         builder: (context) => NoteScreen(
                             title: data.title,
                             description: data.description,
                             date: data.date))),
+=======
+                        builder: (context) => NoteScreen(index: index))),
+>>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(40),
@@ -94,7 +109,11 @@ class HomeScreen extends StatelessWidget {
                                   Spacer(),
                                   InkWell(
                                       onTap: () {
+<<<<<<< HEAD
                                         controller.deleteItem(data.index);
+=======
+                                        controller.deleteItem(index);
+>>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
                                       },
                                       child: Icon(Icons.delete))
                                 ],

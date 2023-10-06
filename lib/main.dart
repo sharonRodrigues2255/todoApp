@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+<<<<<<< HEAD
 import 'package:todoapp/model/data_model.dart';
 import 'package:todoapp/view/homescreen/home_screen.dart';
 
@@ -13,6 +14,11 @@ void main() async {
   }
 
   var box = await Hive.openBox("todoDB");
+=======
+import 'package:todoapp/view/homescreen/home_screen.dart';
+
+void main() async {
+>>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
   runApp(const MyApp());
 }
 

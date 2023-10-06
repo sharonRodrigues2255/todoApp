@@ -16,10 +16,14 @@ class DataModel extends HiveObject {
   final int? index;
 
   DataModel(
+<<<<<<< HEAD
       {required this.date,
       required this.description,
       required this.title,
       this.index});
+=======
+      {required this.date, required this.description, required this.title});
+>>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
 
   @override
   String toString() {
