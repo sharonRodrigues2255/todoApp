@@ -1,26 +1,12 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import 'package:todoapp/controller/notelist_functions.dart';
-=======
->>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
-=======
->>>>>>> parent of e1897f3 (integrated hive and todo finished)
 import 'package:todoapp/model/data_model.dart';
 import 'package:todoapp/utils/colors.dart';
 import 'package:todoapp/utils/contants.dart';
 
 showAddBottomSheet(
   BuildContext context,
-<<<<<<< HEAD
-<<<<<<< HEAD
   Function({required DataModel data}) addItem,
-=======
-  Function addttle,
->>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
-=======
-  Function addttle,
->>>>>>> parent of e1897f3 (integrated hive and todo finished)
 ) {
   TextEditingController titlleController = TextEditingController();
   TextEditingController descriptioncontroller = TextEditingController();
@@ -98,8 +84,6 @@ showAddBottomSheet(
                   kheight20,
                   ElevatedButton(
                     onPressed: () {
-<<<<<<< HEAD
-<<<<<<< HEAD
                       final controller = NoteController();
                       controller.tiledata.value.length;
                       addItem(
@@ -109,17 +93,6 @@ showAddBottomSheet(
                             title: titlleController.text,
                             index: DateTime.now().microsecond.toInt()),
                       );
-=======
-=======
->>>>>>> parent of e1897f3 (integrated hive and todo finished)
-                      addttle(DataModel(
-                          date: dateController.text,
-                          description: descriptioncontroller.text,
-                          title: titlleController.text));
-<<<<<<< HEAD
->>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
-=======
->>>>>>> parent of e1897f3 (integrated hive and todo finished)
 
                       Navigator.pop(context);
                     },

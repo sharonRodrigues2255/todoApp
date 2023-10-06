@@ -1,7 +1,8 @@
 import 'package:hive/hive.dart';
+part 'data_model.g.dart';
 
 @HiveType(typeId: 1)
-class DataModel {
+class DataModel extends HiveObject {
   @HiveField(0)
   final String title;
 
@@ -11,19 +12,14 @@ class DataModel {
   @HiveField(2)
   final String date;
 
+  @HiveField(3)
+  final int? index;
+
   DataModel(
-<<<<<<< HEAD
-<<<<<<< HEAD
       {required this.date,
       required this.description,
       required this.title,
       this.index});
-=======
-      {required this.date, required this.description, required this.title});
->>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
-=======
-      {required this.date, required this.description, required this.title});
->>>>>>> parent of e1897f3 (integrated hive and todo finished)
 
   @override
   String toString() {
