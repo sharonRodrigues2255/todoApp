@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/utils/colors.dart';
 import 'package:todoapp/utils/contants.dart';
-import 'package:todoapp/view/homescreen/home_screen.dart';
 
 class NoteScreen extends StatelessWidget {
-  const NoteScreen({super.key, required this.index});
-  final int index;
+  const NoteScreen(
+      {super.key,
+      required this.title,
+      required this.description,
+      required this.date});
+  final String title;
+  final String description;
+  final String date;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +19,7 @@ class NoteScreen extends StatelessWidget {
         backgroundColor: Colors.amber,
         centerTitle: true,
         title: Text(
-          tiledata[index]["title"]!,
+          title,
           style: TextStyle(fontSize: 30),
         ),
       ),
@@ -26,18 +31,16 @@ class NoteScreen extends StatelessWidget {
               children: [
                 Spacer(),
                 Text(
-                  tiledata[index]["date"]!,
+                  "Date : $date",
                   style: TextStyle(color: Colors.white),
                 ),
-                kwidth20,
-                kwidth20,
               ],
             ),
             kwidth20,
             Expanded(
               child: Text(
-                tiledata[index]["desc"]!,
-                style: TextStyle(color: Colors.white),
+                description,
+                style: TextStyle(color: Colors.white, fontSize: 18),
               ),
             )
           ],
