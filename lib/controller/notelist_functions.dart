@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todoapp/model/data_model.dart';
 
 class NoteController {
-  ValueNotifier<List<DataModel>> tiledata = ValueNotifier<List<DataModel>>([]);
-  addItem(DataModel data) {
-    tiledata.value.add(data);
-    print(tiledata.value);
+  var mydb = Hive.box("todoDB");
+
+  ValueNotifier tiledata = ValueNotifier([]);
+
+  addItem({required DataModel data}) {
+    print(data.index);
+    mydb.put(data.index, data);
+    getItems();
+  }
+
+  getItems() async {
+    tiledata.value = [];
+    final data = mydb.values;
+    tiledata.value.addAll(data);
     tiledata.notifyListeners();
   }
 
   deleteItem(int index) {
-    final value = tiledata.value.removeAt(index);
-    print(value);
-    tiledata.notifyListeners();
+    mydb.delete(index);
+    getItems();
   }
 }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp/controller/notelist_functions.dart';
 import 'package:todoapp/model/data_model.dart';
 import 'package:todoapp/utils/colors.dart';
 import 'package:todoapp/utils/contants.dart';
 
 showAddBottomSheet(
   BuildContext context,
-  Function addttle,
+  Function({required DataModel data}) addItem,
 ) {
   TextEditingController titlleController = TextEditingController();
   TextEditingController descriptioncontroller = TextEditingController();
@@ -83,10 +84,15 @@ showAddBottomSheet(
                   kheight20,
                   ElevatedButton(
                     onPressed: () {
-                      addttle(DataModel(
-                          date: dateController.text,
-                          description: descriptioncontroller.text,
-                          title: titlleController.text));
+                      final controller = NoteController();
+                      controller.tiledata.value.length;
+                      addItem(
+                        data: DataModel(
+                            date: dateController.text,
+                            description: descriptioncontroller.text,
+                            title: titlleController.text,
+                            index: DateTime.now().microsecond.toInt()),
+                      );
 
                       Navigator.pop(context);
                     },

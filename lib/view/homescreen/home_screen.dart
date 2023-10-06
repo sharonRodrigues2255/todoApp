@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/controller/notelist_functions.dart';
-import 'package:todoapp/model/data_model.dart';
 import 'package:todoapp/utils/colors.dart';
 import 'package:todoapp/utils/contants.dart';
 import 'package:todoapp/view/homescreen/widgets/bottom_sheet.dart';
@@ -12,6 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = NoteController();
+    controller.getItems();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: ValueListenableBuilder(
         valueListenable: controller.tiledata,
-        builder: (BuildContext context, List<DataModel> value, _) {
+        builder: (BuildContext context, value, _) {
           return ListView.builder(
               itemCount: value.length,
               itemBuilder: (context, index) {
@@ -94,7 +94,7 @@ class HomeScreen extends StatelessWidget {
                                   Spacer(),
                                   InkWell(
                                       onTap: () {
-                                        controller.deleteItem(index);
+                                        controller.deleteItem(data.index);
                                       },
                                       child: Icon(Icons.delete))
                                 ],
