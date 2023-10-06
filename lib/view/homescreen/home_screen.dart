@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/controller/notelist_functions.dart';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import 'package:todoapp/model/data_model.dart';
 >>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
+=======
+import 'package:todoapp/model/data_model.dart';
+>>>>>>> parent of e1897f3 (integrated hive and todo finished)
 import 'package:todoapp/utils/colors.dart';
 import 'package:todoapp/utils/contants.dart';
 import 'package:todoapp/view/homescreen/widgets/bottom_sheet.dart';
@@ -16,9 +20,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = NoteController();
 <<<<<<< HEAD
+<<<<<<< HEAD
     controller.getItems();
 =======
 >>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
+=======
+>>>>>>> parent of e1897f3 (integrated hive and todo finished)
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
@@ -43,10 +50,14 @@ class HomeScreen extends StatelessWidget {
       body: ValueListenableBuilder(
         valueListenable: controller.tiledata,
 <<<<<<< HEAD
+<<<<<<< HEAD
         builder: (BuildContext context, value, _) {
 =======
         builder: (BuildContext context, List<DataModel> value, _) {
 >>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
+=======
+        builder: (BuildContext context, List<DataModel> value, _) {
+>>>>>>> parent of e1897f3 (integrated hive and todo finished)
           return ListView.builder(
               itemCount: value.length,
               itemBuilder: (context, index) {
@@ -110,10 +121,14 @@ class HomeScreen extends StatelessWidget {
                                   InkWell(
                                       onTap: () {
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         controller.deleteItem(data.index);
 =======
                                         controller.deleteItem(index);
 >>>>>>> 33bbd73227561da0fda99daad9effa3a96b3bfa4
+=======
+                                        controller.deleteItem(index);
+>>>>>>> parent of e1897f3 (integrated hive and todo finished)
                                       },
                                       child: Icon(Icons.delete))
                                 ],
