@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 part 'data_model.g.dart';
 
@@ -15,11 +16,15 @@ class DataModel extends HiveObject {
   @HiveField(3)
   final int? index;
 
+  @HiveField(4)
+  final int? color;
+
   DataModel(
       {required this.date,
       required this.description,
       required this.title,
-      this.index});
+      this.index,
+      required this.color});
 
   @override
   String toString() {

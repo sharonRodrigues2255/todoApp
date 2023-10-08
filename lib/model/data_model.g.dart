@@ -21,13 +21,14 @@ class DataModelAdapter extends TypeAdapter<DataModel> {
       description: fields[1] as String,
       title: fields[0] as String,
       index: fields[3] as int?,
+      color: fields[4] as int?,
     );
   }
 
   @override
   void write(BinaryWriter writer, DataModel obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class DataModelAdapter extends TypeAdapter<DataModel> {
       ..writeByte(2)
       ..write(obj.date)
       ..writeByte(3)
-      ..write(obj.index);
+      ..write(obj.index)
+      ..writeByte(4)
+      ..write(obj.color);
   }
 
   @override
