@@ -8,7 +8,6 @@ class NoteController {
   ValueNotifier tiledata = ValueNotifier([]);
 
   addItem({required DataModel data}) {
-    print(data.index);
     mydb.put(data.index, data);
     getItems();
   }

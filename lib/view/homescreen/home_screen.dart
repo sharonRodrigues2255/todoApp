@@ -75,6 +75,7 @@ class HomeScreen extends StatelessWidget {
                                         width: 220,
                                         child: Text(
                                           data.title,
+                                          overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
                                               fontSize: 40,
                                               overflow: TextOverflow.ellipsis),
@@ -82,8 +83,10 @@ class HomeScreen extends StatelessWidget {
                                       ),
                                       Container(
                                         width: 220,
+                                        height: 30,
                                         child: Text(
                                           data.description,
+                                          overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
                                               overflow: TextOverflow.ellipsis,
                                               fontSize: 20),
