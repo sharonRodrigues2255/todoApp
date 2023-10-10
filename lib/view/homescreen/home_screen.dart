@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:todoapp/controller/notelist_functions.dart';
 import 'package:todoapp/utils/colors.dart';
 import 'package:todoapp/utils/contants.dart';
@@ -72,7 +73,6 @@ class HomeScreen extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        width: 220,
                                         child: Text(
                                           data.title,
                                           overflow: TextOverflow.ellipsis,
@@ -82,7 +82,6 @@ class HomeScreen extends StatelessWidget {
                                         ),
                                       ),
                                       Container(
-                                        width: 220,
                                         height: 30,
                                         child: Text(
                                           data.description,
@@ -95,11 +94,24 @@ class HomeScreen extends StatelessWidget {
                                     ],
                                   ),
                                   Spacer(),
-                                  InkWell(
-                                      onTap: () {
-                                        controller.deleteItem(data.index);
-                                      },
-                                      child: Icon(Icons.delete))
+                                  Row(
+                                    children: [
+                                      InkWell(
+                                          onTap: () {
+                                            Share.share(
+                                                "${data.title}\n:- ${data.description}");
+                                          },
+                                          child: Icon(Icons.share)),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      InkWell(
+                                          onTap: () {
+                                            controller.deleteItem(data.index);
+                                          },
+                                          child: Icon(Icons.delete)),
+                                    ],
+                                  )
                                 ],
                               ),
                               Row(
